@@ -1,0 +1,7 @@
+content play  chrome/content/
+
+locale  play  en-US chrome/locale/en-US/
+
+overlay chrome://selenium-ide/content/selenium-ide-common.xul chrome://play/content/view/optionsOverlay.xul
+
+overlay chrome://selenium-ide/content/selenium-ide-overlay.xul chrome://play/content/formats/format-loader.xul

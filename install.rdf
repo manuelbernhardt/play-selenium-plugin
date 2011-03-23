@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+    <Description about="urn:mozilla:install-manifest">
+        <em:id>playseleniumformatter@lucidcode.eu</em:id>
+        <em:name>Selenium IDE: Play! Formatter</em:name>
+        <em:version>1.0</em:version>
+        <em:creator>Manuel Bernhardt</em:creator>
+        <em:description>Plugin for the Play! framework</em:description>
+        <em:type>2</em:type>
+        <!--Preferences - none so far
+        <em:optionsURL>chrome://play/content/view/options.xul</em:optionsURL>
+        -->
+        <!-- its a firefox plugin -->
+        <em:targetApplication>
+            <Description>
+                <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+                <em:minVersion>1.5</em:minVersion>
+                <em:maxVersion>3.6.*</em:maxVersion>
+            </Description>
+        </em:targetApplication>
+
+        <em:iconURL>
+            chrome://play/content/images/play-icon.png
+        </em:iconURL>
+
+        <!-- this is an Se-IDE plugin, so we need to specify it as a requirement -->
+        <em:requires>
+            <Description>
+                <em:id>{a6fd85ed-e919-4a43-a5af-8da18bda539f}</em:id>
+                <em:minVersion>1.0b2</em:minVersion>
+                <em:maxVersion>1.*</em:maxVersion>
+            </Description>
+        </em:requires>
+    </Description>
+</RDF>
