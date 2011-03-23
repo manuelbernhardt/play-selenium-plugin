@@ -9,6 +9,6 @@
     <script type="application/x-javascript" src="chrome://play/content/play-custom-settings.js"/>
     <html:script type="application/javascript">
         var ide_api = new API();
-        ide_api.addPluginProvidedFormatter("play", "Play! Formatter", "chrome://play/content/formats/play-formatter.js");
+        ide_api.addPluginProvidedFormatter("play", "Play!", "chrome://play/content/formats/play-formatter.js");
     </html:script>
 </overlay>
