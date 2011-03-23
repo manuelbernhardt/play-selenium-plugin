@@ -6,25 +6,39 @@
  */
 function parse(testCase, source) {
     var doc = source;
+    var rdef = /^(\w+)\(\s*(?:('(?:\\'|[^'])*'|[^.]+?)\s*(?:,\s*('(?:\\'|[^'])*'|[^.]+?)\s*)?)?\)$/;
+    var r = new RegExp(rdef);
     var commands = [];
     while (doc.length > 0) {
-        var line = /^(\w+)\(\s*(?:('(?:\\'|[^'])*'|[^.]+?)\s*(?:,\s*('(?:\\'|[^'])*'|[^.]+?)\s*)?)?\)$/.exec(doc);
-        var array = line[1].split(/,/);
-        if (array.length >= 3) {
-            for (var i = 0; i < array.length; i++) {
-                if (/^'.*'$/.test(array[i])) {
-                    array[i] = array[i].substring(1, array[i].length() - 1);
-                    array[i] = array[i].replace("\\'", "'");
+        var lines = /(.*)(\r\n|[\r\n])?/.exec(doc);
+        if (lines !== null && lines.length > 1) {
+            var line = lines[1];
+            var commandString = line.trim();
+            var c = null;
+            c = r.exec(commandString);
+            if (c !== null && c.length > 1) {
+                var array = c.slice(1);
+                if (array.length >= 3) {
+                    for (var i = 0; i < array.length; i++) {
+                        if (/^'.*'$/.test(array[i])) {
+                            array[i] = array[i].substring(1, array[i].length - 1);
+                            array[i] = array[i].replace("\\'", "'");
+                        }
+                        if (array[i] == undefined) {
+                            array[i] = "";
+                        }
+                    }
                 }
+                var command = new Command();
+                command.command = array[0];
+                command.target = array[1];
+                command.value = array[2];
+                commands.push(command);
             }
-            var command = new Command();
-            command.command = array[0];
-            command.target = array[1];
-            command.value = array[2];
-            commands.push(command);
         }
-        doc = doc.substr(line[0].length);
+        doc = doc.substr(lines[0].length);
     }
+
     testCase.setCommands(commands);
 }
 
@@ -52,7 +66,7 @@ function formatCommands(commands) {
     for (var i = 0; i < commands.length; i++) {
         var command = commands[i];
         if (command.type == 'command') {
-            result += command.command + "(\'" + command.target + "\'"  + (command.value.length > 0 ? ("," + "\'" + command.value + "\'") : "") + ")\n";
+            result += command.command + "(\'" + command.target + "\'" + (command.value.length > 0 ? ("," + "\'" + command.value + "\'") : "") + ")\n";
         }
     }
     return result;
