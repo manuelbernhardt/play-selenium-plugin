@@ -9,6 +9,7 @@ function parse(testCase, source) {
     var rdef = /^(\w+)\(\s*(?:('(?:\\'|[^'])*'|[^.]+?)\s*(?:,\s*('(?:\\'|[^'])*'|[^.]+?)\s*)?)?\)$/;
     var r = new RegExp(rdef);
     var commands = [];
+    var currentIndex = 0;
     while (doc.length > 0) {
         var lines = /(.*)(\r\n|[\r\n])?/.exec(doc);
         if (lines !== null && lines.length > 1) {
@@ -32,9 +33,17 @@ function parse(testCase, source) {
                 var command = new Command();
                 command.command = array[0];
                 command.target = array[1];
-                command.value = array[2];
+                command.value = array[2];   
                 commands.push(command);
+            } else {
+                // this was not a recognized Play command, so we assume the whole line is a comment
+                var comment = new Comment();
+                comment.comment = line;
+                comment.skip = line.length;
+                comment.index = currentIndex;
+                commands.push(comment);
             }
+            currentIndex += line.length;
         }
         doc = doc.substr(lines[0].length);
     }
@@ -49,9 +58,10 @@ function parse(testCase, source) {
  * @param name The name of the test case, if any. It may be used to embed title into the source.
  */
 function format(testCase, name) {
-    var result = '#{selenium \'' + name + '\'}\n\n';
-    result += formatCommands(testCase.commands);
-    result += '\n#{/selenium}';
+// TODO - see if we can find a way not to write those standard headers when we save a file with existing headers
+//    var result = '#{selenium \'' + name + '\'}\n\n';
+    var result = formatCommands(testCase.commands);
+//    result += '\n#{/selenium}';
     return result;
 }
 
@@ -67,6 +77,8 @@ function formatCommands(commands) {
         var command = commands[i];
         if (command.type == 'command') {
             result += "    " + command.command + "(\'" + command.target + "\'" + (command.value.length > 0 ? ("," + "\'" + command.value.replace(/'/g, "\\'") + "\'") : "") + ")\n";
+        } else if(command.type == 'comment') {
+            result += command.comment + "\n";
         }
     }
     return result;
