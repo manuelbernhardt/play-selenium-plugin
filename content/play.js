@@ -1,4 +1,4 @@
-const PLAY_ID = "playseleniumformatter@lucidcode.eu";
+const PLAY_ID = "playseleniumformatter@oxiras.com";
 
 function initializePlayObserver() {
     playObserver.register();
