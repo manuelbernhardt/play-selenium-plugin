@@ -66,7 +66,7 @@ function formatCommands(commands) {
     for (var i = 0; i < commands.length; i++) {
         var command = commands[i];
         if (command.type == 'command') {
-            result += command.command + "(\'" + command.target + "\'" + (command.value.length > 0 ? ("," + "\'" + command.value + "\'") : "") + ")\n";
+            result += "    " + command.command + "(\'" + command.target + "\'" + (command.value.length > 0 ? ("," + "\'" + command.value + "\'") : "") + ")\n";
         }
     }
     return result;
