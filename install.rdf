@@ -24,6 +24,8 @@
             chrome://play/content/images/play-icon.png
         </em:iconURL>
 
+        <em:updateURL>http://manuelbernhardt.github.com/play-selenium-plugin/update.rdf</em:updateURL>
+
         <!-- this is an Se-IDE plugin, so we need to specify it as a requirement -->
         <em:requires>
             <Description>
