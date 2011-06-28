@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<RDF:RDF xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+
+    <RDF:Description about="urn:mozilla:extension:playseleniumformatter@oxiras.com">
+        <em:updates>
+            <RDF:Seq>
+
+                <!-- Each li is a different version of the same add-on -->
+                <RDF:li>
+                    <RDF:Description>
+                        <!-- This is the version number of the add-on -->
+                        <em:version>1.0</em:version>
+
+                        <!-- One targetApplication for each application the add-on is compatible with -->
+                        <em:targetApplication>
+                            <RDF:Description>
+                                <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+                                <em:minVersion>1.5</em:minVersion>
+                                <em:maxVersion>3.6.*</em:maxVersion>
+
+                                <!-- This is where this version of the add-on will be downloaded from -->
+                                <em:updateLink>https://github.com/downloads/manuelbernhardt/play-selenium-plugin/play-selenium-1.0.xpi</em:updateLink>
+
+                                <!-- A page describing what is new in this updated version
+                                <em:updateInfoURL>http://www.mysite.com/updateinfo2.2.xhtml</em:updateInfoURL>
+                                 -->
+                            </RDF:Description>
+                        </em:targetApplication>
+                    </RDF:Description>
+                </RDF:li>
+                <RDF:li>
+                    <RDF:Description>
+                        <!-- This is the version number of the add-on -->
+                        <em:version>1.1</em:version>
+
+                        <!-- One targetApplication for each application the add-on is compatible with -->
+                        <em:targetApplication>
+                            <RDF:Description>
+                                <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+                                <em:minVersion>1.5</em:minVersion>
+                                <em:maxVersion>3.6.*</em:maxVersion>
+
+                                <!-- This is where this version of the add-on will be downloaded from -->
+                                <em:updateLink>https://github.com/downloads/manuelbernhardt/play-selenium-plugin/play-selenium-1.1.xpi</em:updateLink>
+
+                                <!-- A page describing what is new in this updated version
+                                <em:updateInfoURL>http://www.mysite.com/updateinfo2.2.xhtml</em:updateInfoURL>
+                                 -->
+                            </RDF:Description>
+                        </em:targetApplication>
+                    </RDF:Description>
+                </RDF:li>
+                <RDF:li>
+                    <RDF:Description>
+                        <!-- This is the version number of the add-on -->
+                        <em:version>1.2</em:version>
+
+                        <!-- One targetApplication for each application the add-on is compatible with -->
+                        <em:targetApplication>
+                            <RDF:Description>
+                                <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+                                <em:minVersion>1.5</em:minVersion>
+                                <em:maxVersion>4.*</em:maxVersion>
+
+                                <!-- This is where this version of the add-on will be downloaded from -->
+                                <em:updateLink>https://github.com/downloads/manuelbernhardt/play-selenium-plugin/play-selenium-1.2.xpi</em:updateLink>
+
+                                <!-- A page describing what is new in this updated version
+                                <em:updateInfoURL>http://www.mysite.com/updateinfo2.2.xhtml</em:updateInfoURL>
+                                 -->
+                            </RDF:Description>
+                        </em:targetApplication>
+                    </RDF:Description>
+                </RDF:li>
+                <RDF:li>
+                    <RDF:Description>
+                        <!-- This is the version number of the add-on -->
+                        <em:version>1.3</em:version>
+
+                        <!-- One targetApplication for each application the add-on is compatible with -->
+                        <em:targetApplication>
+                            <RDF:Description>
+                                <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+                                <em:minVersion>1.5</em:minVersion>
+                                <em:maxVersion>5.*</em:maxVersion>
+
+                                <!-- This is where this version of the add-on will be downloaded from -->
+                                <em:updateLink>https://github.com/downloads/manuelbernhardt/play-selenium-plugin/play-selenium-1.2.xpi</em:updateLink>
+
+                                <!-- A page describing what is new in this updated version
+                                <em:updateInfoURL>http://www.mysite.com/updateinfo2.2.xhtml</em:updateInfoURL>
+                                 -->
+                            </RDF:Description>
+                        </em:targetApplication>
+                    </RDF:Description>
+                </RDF:li>
+
+            </RDF:Seq>
+        </em:updates>
+    </RDF:Description>
+</RDF:RDF>
